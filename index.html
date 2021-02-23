@@ -1,389 +1,950 @@
-﻿<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html>
+	<head>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="email=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="renderer" content="webkit">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>[CV]Yun Zhang</title>
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet"  type="text/css" href="assets/css/typo.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
 
-    <script>
-        function loading() {
-            document.getElementsByClassName('avatar')[0].style.display = 'block';
-            document.getElementsByClassName('loading')[0].style.display = 'none';
-        }
-    </script>
-</head>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i" rel="stylesheet">
 
-<body>
+	<title>Andrew Avdeev</title>
 
-    <header class="header"></header>
+	<style>
+	body {
+  background: #fff;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.02em;
+  word-wrap: break-word;
+  color: #000;
+  line-height: 1.4;
+  margin: 50px 0 60px;
+}
 
-    <article class="container">
-        <section class="side" id="side">
+h1, h2, h3, h4, h5 {
+  line-height: 1em;
+  margin: 0;
+}
+h1 {
+  color: #FF1717;
+  font-size: 2.4em;
+  font-weight: 900;
+}
+h2 {
+  margin-top: 10px;
+  font-weight: 900;
+}
+h3 {
+  font-size: 1.2em;
+  font-weight: 900;
+}
+h4 {
+  font-size: 1.1em;
+  margin-bottom: 0.3em;
+}
+p {
+  font-weight: 400;
+  font-size: 1em;
+  margin: 0;
+  line-height: 1.8em;
+  opacity: 0.8;
+}
+em {
+  opacity: 0.5;
+}
+p {
+  line-height: 1.4;
+}
+ul {
+  margin-bottom: 0;
+}
+section, #skills .item {
+  margin-bottom: 2em;
+}
+section > h3 {
+  width: 25%;
+  float: left;
+  color: #FF1717;
+}
+section > section {
+  width: 75%;
+  float: left;
+}
+blockquote {
+  margin: 0;
+  margin-bottom: 1em;
+}
+a {
+  font-size: 0.9em;
+  font-weight: 700;
+  opacity: 0.5;
+  color: #000;
+}
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: #ccc;
+}
+.item {
+  margin-bottom: 3em;
+}
+.row:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#resume {
+  margin: 0 auto;
+  /*max-width: 595px;*/
+  max-width: 690px;
+  padding: 0 50px;
+}
+#resume > section {
+  margin-bottom: -10px;
+  margin-top: 10px;
+}
+#resume > section:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.summary {
+  margin: 10px 0 50px;
+  font-style: italic;
+}
+#skills .keywords,
+#languages > section,
+#interests > section,
+#profiles > section,
+#contacts {
+  display: flex;
+  flex-wrap: wrap;
+}
+#education .institution,
+#work .name,
+#volunteer .name,
+#awards .title,
+#publications .name {
+  font-size: 1em;
+  font-weight: 900;
+  width: 65%;
+  float: left;
+}
+#education .area,
+#education .studyType {
+  font-size: 0.9em;
+  font-weight: 400;
+  font-style: italic
+}
+#education .date,
+#work .date,
+#volunteer .date,
+#awards .date,
+#publications .date {
+  font-size: 0.7em;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  width: 35%;
+  float: right;
+  text-align: right;
+}
+#education .education-sub-info {
+  margin-top: 10px;
+}
+#education .education-sub-info span:not(:last-child):after {
+  margin: 0 5px;
+  content: "/";
+}
+#work .url,
+#work .position,
+#work .highlights,
+#work .item > h5,
+#volunteer .url,
+#volunteer .position,
+#volunteer .highlights,
+#volunteer .item > h5,
+#awards .awarder,
+#publications .url,
+#publications .publisher,
+#skills .item .level,
+#languages .item .fluency {
+  font-size: 0.9em;
+}
+#work .summary,
+#work .description,
+#awards .summary,
+#volunteer .summary,
+#publications .summary {
+  font-style: normal;
+  font-size: 0.8em;
+  margin: 10px 0;
+}
+#work .position,
+#volunteer .position,
+#awards .awarder,
+#publications .publisher {
+  margin-top: 10px;
+  font-style: italic;
+}
+#work .highlights,
+#volunteer .highlights {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#work .highlights li,
+#volunteer .highlights li {
+  font-size: 0.9em;
 
+  /* one column configration */
+  width: 100%;
 
-            <label class="switch" style="display: none;" onchange="switchFixed()">
-                <script type="text/javaScript">
-                    function switchFixed() {
-                    var value = document.getElementById('side').style.position === 'fixed' ? 'absolute' : 'fixed';
-                    document.getElementById('side').style.position = value;
-                }
-            </script>
-                <input id="cb" type="checkbox">
-                <span class="slider round"></span>
-            </label>
-            <style>
-                @media (min-width: 414px) {
-                    .switch {
-                        position: relative;
-                        display: inline-block !important;
-                        width: 60px;
-                        height: 34px;
-                    }
-
-                    .switch input {
-                        display: none;
-                    }
-
-                    .slider {
-                        position: absolute;
-                        cursor: pointer;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        background-color: #ccc;
-                        -webkit-transition: .4s;
-                        transition: .4s;
-                    }
-
-                    .slider:before {
-                        position: absolute;
-                        content: "";
-                        height: 26px;
-                        width: 26px;
-                        left: 4px;
-                        bottom: 4px;
-                        background-color: white;
-                        -webkit-transition: .4s;
-                        transition: .4s;
-                    }
-
-                    input:checked+.slider {
-                        background-color: #1abc9c;
-                    }
-
-                    input:focus+.slider {
-                        box-shadow: 0 0 1px #1abc9c;
-                    }
-
-                    input:checked+.slider:before {
-                        -webkit-transform: translateX(26px);
-                        -ms-transform: translateX(26px);
-                        transform: translateX(26px);
-                    }
-
-                    .slider.round {
-                        border-radius: 34px;
-                    }
-
-                    .slider.round:before {
-                        border-radius: 50%;
-                    }
-                }
-            </style>
-            <!-- 左侧固定开关，记得及时删除这段代码 End-->
-
-            <!-- 个人肖像 -->
-            <section class="me">
-                <section class="portrait">
-                    <!-- <div class="loading">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div> -->
-                    <!-- 头像照片 -->
-                    <img class="avatar" src="assets/images/card.jpg">
-                </section>
-
-                <h1 class="name"><strong>Yun Zhang</strong></h1>
-                <h4 class="info-job"><strong>Java开发工程师</strong> </h4>
-
-            </section>
-
-            <!-- 基本信息 -->
-            <section class="profile info-unit">
-                <h2>
-                    <i class="fa fa-user" aria-hidden="true"></i>Basic info</h2>
-                <hr />
-                <ul>
-                    <li>
-                        <label>Brief bio</label>
-                        <span>Yun</span>
-                    </li>
-                    <li>
-                        <label>Biomedical Engineering</label>
-                        <span> </span>
-                    </li>
-					<li>
-                        <label>Location</label>
-                        <span>Department of Biological Science and Medical Engineering, Southeast University, Nanjing, China </span>
-                    </li>
-
-                </ul>
-            </section>
-
-            <!-- 联系方式 -->
-            <section class="contact info-unit">
-                <h2>
-                    <i class="fa fa-phone" aria-hidden="true"></i>Contact Info</h2>
-                <hr />
-                <ul>
-                    <li>
-                        <label><i class="fa fa-phone"></i></label>
-                        <a target="_blank">+86 156 5190 8372</a>
-                    </li>
-                    <li>
-                        <label><i class="fa fa-envelope"></i></label>
-                        <a href="mailto:zhangy099@foxmail.com" target="_blank">zhangy099@foxmail.com</a>
-                    </li>
-                    <li>
-                        <label><i class="fa fa-file-text-o"></i></label>
-                        <a href="https://blog.csdn.net/qq_38288847" target="_blank">hack-hu 的博客</a>
-                    </li>
-                    <li>
-                        <label><i class="fa fa-github" aria-hidden="true"></i></label>
-                        <a href="https://github.com/hackhu2019" target="_blank">github.com/hackhu2019</a>
-                    </li>
-                </ul>
-            </section>
-
-            <!-- 教育经历 -->
-            <section class="edu info-unit">
-                    <h2>
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>教育经历</h2>
-                    <hr />
-                    <ul>
-                        <li>
-                            <h3>
-                                <p>浙江大学宁波理工学院 —— 本科</p>
-                                <p>专业：软件工程</p>
-                            </h3>
-                            <time>时间：<mark> 2018.9-2020.7</mark></time>
-                            <p>
-                                GPA：<mark>4.38/5.0</mark>
-                            </p>
-                            <p>专业排名：<mark>前 5%</mark>
-                            </p>
-                        </li>
-                    </ul>
-                </section>
-    
-                <!-- 个人荣誉 -->
-                <section class="edu info-unit">
-                    <h2>
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>个人荣誉</h2>
-                    <hr />
-    
-    
-                    1、 2018 年浙江省优秀毕业生<br />
-                    2、 2017 年浙江省政府奖学金 <br />
-    
-                </section>
-            <!-- 个人技能 -->
-            <section class="skill info-unit">
-                <h2>
-                    <i class="fa fa-code" aria-hidden="true"></i>技能点</h2>
-                <hr/>
-                <ul>
-                    <li>
-                        <label>Java</label>
-                        <progress value="80" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>JavaScript</label>
-                        <progress value="50" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>C#</label>
-                        <progress value="60" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>C</label>
-                        <progress value="70" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>MySQL</label>
-                        <progress value="60" max="100"></progress>
-                    </li>
-                </ul>
-            </section>
-        </section>
-
-        <section class="main">
-
-            <!-- 专业能力 -->
-            <section class="work info-unit">
-                <h2>
-                    <i class="fa fa-pencil" aria-hidden="true"></i>专业能力</h2>
-                <hr />
-                <p> 掌握计算机网络、操作系统、软件工程基础课程，熟悉常用设计模式（单例模式、工厂模式、原型模式、适配器模式等）
-                </p>
-                <p>
-                    熟悉常用数据结构(Array、List、Stack、Queue、Heap、Tree),了解Hash、跳表，熟悉常用的排序算法(冒泡、插入、选择、快排、堆排、归并、桶)
-                </p>
-                <p>
-                    熟悉C/Java/C#、理解面向对象思想，掌握Java继承和多态特性。了解JavaWeb常用框架，如Spring、SpringBoot 等。
-                </p>
-            </section>
-
-            <!-- 工作经历 -->
-
-            <section class="project info-unit">
-                <h2>
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i>工作经历</h2>
-                <hr />
-                <ul>
-                    <li>
-                        <h3>
-                            <span>【实习】：杭州代码狗科技有限公司</span>
-                            <time>2019.11-2020.01</time>
-                        </h3>
-                        <ul class="info-content">
-                            <li><i class="fa fa-users" aria-hidden="true"></i>
-                                [工作岗位]：Java开发实习生
-                            </li>
-                            <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [参与项目]：API管理中心
-                            </li>
-                            <li>
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、制作代码生成器，根据数据库表格生成相应格式的Service、DAO层代码<br />
-                                    &emsp;&emsp;2、根据ElasticSearch提供的Java API 生成统计报表<br />
-                                    &emsp;&emsp;3、使用预排序遍历树算法对于多层级问题优化<br />
-                                    &emsp;&emsp;4、结合代码开发规范、单元测试修改代码BUG
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-
-            <!-- 项目经验 -->
-            <section class="project info-unit">
-                <h2>
-                    <i class="fa fa-terminal" aria-hidden="true"></i>项目经验</h2>
-                <hr />
-                <ul>
-                    <li>
-                        <h3>
-                            <span>[项目1]<a href="https://gitee.com/hackhu96/mall" target="_blank"> 商城系统</a></span>
-                            <span class="link">
-                                <a href="https://gitee.com/hackhu96/mall" target="_blank">Demo</a>
-                            </span>
-                            <time>2019.8-2019.9</time>
-                        </h3>
-                        <ul class="info-content">
-                            <li>技术栈：Spring + Spring MVC + MyBatis + MySQL + Ajax</li>
-                            <li>
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [模块]用户管理、分类管理、商品管理、购物车管理、收货地址管理、订单管理
-                                <br />
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                [职责]Java后端开发
-                                <br />
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [主要贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、用枚举类型代替无意义常量，规范化编程<br />
-                                    &emsp;&emsp;2、利用 MD5 实现对密码的加密，同时针对常见的：横向越权、纵向越权问题等进行防御式编程<br />
-                                    &emsp;&emsp;3、对于产品分类的多层级问题结合递归算法解决<br />
-                                    &emsp;&emsp;4、对于浮点运算的精度丢失问题进行针对性处理
-                                </p>
-
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>
-                            <span>[项目2] <a href="https://github.com/hackhu2019/seckill" target="_blank">
-                                    秒杀系统</a></span>
-                            <span class="link">
-                                <a href="https://github.com/hackhu2019/seckillk" target="_blank">Demo</a>
-                            </span>
-                            <time>2019.12-2020.3</time>
-                        </h3>
-                        <ul class="info-content">
-                            <li>技术栈：SpringBoot + Spring MVC + MyBatis + MySQL + Redis + RocketMQ</li>
-                            <li>
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [模块]用户管理、商品管理、交易管理、秒杀管理等
-                            </li>
-                            <li>
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                [职责]Java后端开发
-                            </li>
-                            <li>
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [主要贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、对用户信息、商品信息等常用数据进行缓存处理
-                                    <br>&emsp;&emsp;2、采用异步流程对交易模块进行优化，维护数据最终一致性
-                                    <br>&emsp;&emsp;3、对秒杀模块引入令牌进行流量削峰、防刷限流
-                                    <br>&emsp;&emsp;4、结合 Jmeter 对秒杀模块进行压力测试
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </section>
-            
+  /* two column configration */
+  /* width: 45%; */
+  /* margin-right: 5%; */
+}
+#skills .keywords {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8em;
+  margin-top: 10px;
+}
+#skills .keywords li {
+  margin-right: 20px;
+}
+#skills .item .name,
+#languages .item .language,
+#profiles .item .network {
+  font-weight: 900;
+}
+#languages .item,
+#profiles .item {
+  width: 33.3%;
+  margin-bottom: 10px;
+}
+#profiles .item .network {
+  font-size: 0.9em;
+}
+#profiles .item .url {
+  font-size: 0.8em;
+}
+#interests .name {
+  font-size: 0.9em;
+  font-style: italic;
+  margin-right: 7px;
+}
+#interests .name:not(:last-child):after {
+  content: ',';
+  margin-left: -3px;
+}
+#contacts .item {
+  flex: 1;
+  margin-bottom: 0;
+}
+#profiles, #skills {
+  overflow: hidden;
+}
+#contacts {
+  margin-left: 25%;
+  font-size: 0.8em;
+}
+#contacts .site {
+  align-self: flex-end;
+  text-align: right;
+}
+#contacts .site a {
+  color: #FF1717;
+  opacity: 1;
+  font-size: 1em;
+  font-weight: 900;
+}
+#contacts .location .block span:not(:last-child):after {
+  content: ', ';
+}
+#contacts .block {
+  display: block;
+}
+#references .item {
+  width: 45%;
+  float: left;
+  padding-right: 10%;
+}
+#references .item:nth-child(2n) {
+  padding: 0;
+}
+#references .reference {
+  font-style: normal;
+  font-size: 0.7em;
+  margin: 10px 0;
+  font-style: italic;
+}
+#references .name {
+  font-weight: 900;
+  font-size: 0.8em;
+}
+/* Smartphones (portrait) ----------- */
+@media (max-width: 599px) and (not print) {
+  body {
+    margin: 30px 0 40px;
+  }
+  #resume {
+    padding: 0 35px;
+  }
+  #resume > section {
+    margin-top: 50px;
+  }
+  .summary {
+    margin-bottom: 40px;
+  }
+  section {
+    margin-bottom: 0;
+  }
+  section > h3 {
+    width: 100%;
+    float: none;
+    margin-bottom: 20px;
+  }
+  section > section, #references .item {
+    width: 100%;
+    flex: none;
+    padding: 0;
+  }
+  section > .item:last-child, section.item:last-child {
+    margin-bottom: 0;
+  }
+  #contacts {
+    margin-left: 0;
+  }
+  #languages .item, #profiles .item {
+    width: 50%;
+  }
+}
 
 
 
-        </section>
-    </article>
+@media print {
+  body {
+    font-size: 0.9em;
+    margin: 0;
+  }
+  #resume {
+      width: 85%;
+      margin: 1cm auto;
+      padding: 0;
+      -ms-word-wrap: break-word;
+      word-wrap: break-word;
+      line-height: 1.3;
+      font-family: Arial, Georgia, "Lucida Grande", sans-serif;
+  }
+  .summary {
+    margin: 0.2cm 0 0.9cm 0;
+  }
+  #profiles {
+    display: none;
+  }
+  #resume > section {
+    margin: 0;
+  }
+  section > section {
+    margin: 0;
+  }
+  #skills .level {
+    line-height: 1.5em;
+  }
+  #skills .name {
+    float: left;
+    margin-right: 0.5cm;
+  }
+  #skills .keywords {
+    margin-top: 0.1cm;
+  }
+  section#interests {
+    margin-top: 1cm;
+    margin-bottom: 1.2cm;
+  }
+  #contacts {
+    width: 75%;
+    float: right;
+  }
+  p {
+    opacity: 1;
+  }
+}
 
+@page {
+  margin: 1cm 1.4cm;
+}
 
-    <footer class="footer">
-        <p> <b>感谢您花时间阅读我的简历，期待能有机会和您共事。</b> </p>
-    </footer>
+	</style>
 
-    <!-- 侧栏 -->
-    <aside>
-        <ul>
-            <li>
-                <a href="https://github.com/hackhu2019" target="_blank">Github</a>
-            </li>
-            <li>
-                <a href="https://blog.csdn.net/qq_38288847" target="_blank">Blog</a>
-            </li>
-        </ul>
-    </aside>
+	</head>
+	<body>
 
-    <script src="./assets/js/index.js" type="text/javascript"></script>
-
-</body>
-
+	<div id="resume">
+			<h1>Andrew Avdeev</h1>
+			<h2>Full stack web developer</h2>
+		  <div class="summary">
+		    <p>I&#x27;m a full stack web developer and software architect with experience in team management. I Have 7 years of back-end and front-end development experience.</p>
+		  </div>
+    <section id="education">
+    	<h3>Education</h3>
+    	<section class="item">
+        <div class="row">
+          <div class="institution">
+            Belarusian State University of Informatics and Radio electronics
+          </div>
+          <div class="date">
+            <span class="startDate">
+              September 2011
+            </span>
+            <span class="endDate">
+              - September 2016
+            </span>
+          </div>
+        </div>
+        <div class="row education-sub-info">
+          <span class="area">
+            Information technologies engineer
+          </span>
+          <span class="studyType">
+            Bachelor
+          </span>
+        </div>
+    	</section>
+    </section>
+		<section id="work">
+			<h3>Work</h3>
+		  <section>
+		    <div class="item">
+		      <div class="row">
+		        <div class="name">
+		          Scorum
+		        </div>
+		        <div class="date">
+		          <span class="startDate">
+		            July 2017
+		          </span>
+		          <span class="endDate">
+		            - Present
+		          </span>
+		        </div>
+		      </div>
+		      <div class="url">
+		        <a href="https://scorum.com/">https://scorum.com/</a>
+		      </div>
+		      <div class="position">
+		        Head Of Web Development
+		      </div>
+		      <div class="summary">
+		        <p>
+		          Scorum is a pioneering Blockchain powered media platform, that rewards content creators and curators.
+		          
+		        </p>
+		      </div>
+		      <h5>Responsibilities:</h5>
+		      <ul class="highlights">
+		        <li>Servers support and setting (Ubuntu, Microsoft Azure, DigitalOcean, Blockchain Nodes, Terraform, Shell Scripts, Docker, Nginx, Backups, Firewals, DNS settings, Zabbix, Grafana, Alerting, ElasticSearch, Logstash, Kibana, security settings)</li>
+		        <li>Project deployment (Ansible, Jenkins, Gitlab, deployment checklists)</li>
+		        <li>Backend development (NodeJS, Koa2, Express (for React SSR), HapiJS, Twilio API, SendPulse SMTP, …)</li>
+		        <li>Frontend development (React, Redux, RxJS, Ramda, Crypto, Jest, Flow, SASS) </li>
+		        <li>Database support and maintenance (MySQL, MongoDB, Redis)</li>
+		        <li>Regular meetings</li>
+		        <li>Reports Writing</li>
+		        <li>High load optimization &amp; testing (Apache JMeter, Tsung)</li>
+		        <li>Projects estimation</li>
+		        <li>Job interviews</li>
+		        <li>Code-review</li>
+		        <li>Designing the architecture (sequence diagrams, flowcharts, C4 model for software architecture)</li>
+		        <li>Choosing the technologies for the implementation</li>
+		        <li>Support test team</li>
+		        <li>Leadership</li>
+		        <li>Managing team (more then 10 developers)</li>
+		      </ul>
+		    </div>
+		    <div class="item">
+		      <div class="row">
+		        <div class="name">
+		          Monterosa
+		        </div>
+		        <div class="date">
+		          <span class="startDate">
+		            September 2015
+		          </span>
+		          <span class="endDate">
+		            - September 2017
+		          </span>
+		        </div>
+		      </div>
+		      <div class="url">
+		        <a href="https://www.monterosa.co/">https://www.monterosa.co/</a>
+		      </div>
+		      <div class="position">
+		        Full Stack Web Developer
+		      </div>
+		      <div class="summary">
+		        <p>
+		          Monterosa provides technology and ideas that shape the future of fan interaction across entertainment and sport.
+		          I developed an internal product, web and mobile applications.
+		        </p>
+		      </div>
+		      <h5>Responsibilities:</h5>
+		      <ul class="highlights">
+		        <li>Work in a team consisted of 20 people (The Frontend team consisted of 8 team members)</li>
+		        <li>Backend development (NodeJS, PM2, Koa, Express, Socket.IO, Mocha, Chai, PHP5, Silex, Symfony, Doctrine ORM, Contentfull CMS, Janrain (customer identity and access management), SSO, Facebook Messenger API, Graph API)</li>
+		        <li>Frontend development (Backbone.js, Marionette.js, CoffeeScript, React, Redux, Underscore, Lodash, LESS, SASS, BEM)</li>
+		        <li>Mobile development (React Native (including complex animations) – 5 projects)</li>
+		        <li>Database support and maintenance (MySQL (large subqueries + MySQL Transactions), RedisDB (almost all commands were used))</li>
+		        <li>Project deployment (Puppet, Vagrant)</li>
+		        <li>Work with AWS services (S3, CloudFront, ELB, SNS)</li>
+		        <li>High load optimization</li>
+		        <li>Job interviews</li>
+		      </ul>
+		    </div>
+		    <div class="item">
+		      <div class="row">
+		        <div class="name">
+		          PeopleBank Australia
+		        </div>
+		        <div class="date">
+		          <span class="startDate">
+		            September 2014
+		          </span>
+		          <span class="endDate">
+		            - September 2015
+		          </span>
+		        </div>
+		      </div>
+		      <div class="url">
+		        <a href="https://www.peoplebank.com.au/">https://www.peoplebank.com.au/</a>
+		      </div>
+		      <div class="position">
+		        Full Stack Web Developer
+		      </div>
+		      <div class="summary">
+		        <p>
+		          
+		          I developed one of the biggest Australian online work platform, where businesses and independent professionals connect and collaborate. The Team consisted of 1 PM, 1 Full Stack Dev, 1 QA.
+		        </p>
+		      </div>
+		      <h5>Responsibilities:</h5>
+		      <ul class="highlights">
+		        <li>Servers support and setting (CentOS, Vagrant, Shell Scripts, Nginx)</li>
+		        <li>Project deployment (Capistrano, Git hooks, support multiple environments)</li>
+		        <li>Backend development (PHP, Yii1, Laravel, Gearman, NodeJS)</li>
+		        <li>Frontend development (VanillaJS, jQuery, jQuery modules, LESS, SASS)</li>
+		        <li>Database support and maintenance (MySQL)</li>
+		        <li>Regular meetings with manager from Australia</li>
+		        <li>Reports Writing</li>
+		        <li>High load optimization &amp; testing (Apache Bench)</li>
+		      </ul>
+		    </div>
+		    <div class="item">
+		      <div class="row">
+		        <div class="name">
+		          Stone Labs Ltd
+		        </div>
+		        <div class="date">
+		          <span class="startDate">
+		            September 2013
+		          </span>
+		          <span class="endDate">
+		            - September 2014
+		          </span>
+		        </div>
+		      </div>
+		      <div class="url">
+		        <a href="http://stone-labs.com/">http://stone-labs.com/</a>
+		      </div>
+		      <div class="position">
+		        Full Stack Web Developer
+		      </div>
+		      <div class="summary">
+		        <p>
+		          Stone Labs is using best practices in Data Driven Approach in order to set maximum efficiency of every business process.
+		          
+		        </p>
+		      </div>
+		      <h5>Responsibilities:</h5>
+		      <ul class="highlights">
+		        <li>Backend development (PHP, Yii1, Silex, NodeJS, Express)</li>
+		        <li>Frontend development (VanillaJS, jQuery, jQuery modules, LESS, SASS)</li>
+		        <li>Database support and maintenance (MySQL, MongoDB)</li>
+		        <li>Projects estimation (at the sale stage)</li>
+		        <li>Regular meetings</li>
+		      </ul>
+		    </div>
+		    <div class="item">
+		      <div class="row">
+		        <div class="name">
+		          Arsenal Belarus community
+		        </div>
+		        <div class="date">
+		          <span class="startDate">
+		            January 2011
+		          </span>
+		          <span class="endDate">
+		            - September 2014
+		          </span>
+		        </div>
+		      </div>
+		      <div class="url">
+		        <a href="http://fc-arsenal.by/">http://fc-arsenal.by/</a>
+		      </div>
+		      <div class="position">
+		        Founder and lead developer of the official Belarusian Arsenal fan community.
+		      </div>
+		      <div class="summary">
+		        <p>
+		          Arsenal is official Belarusian fan-site of one of the greatest UK football teams.
+		          It was developed to read news, watch games, see statistics and make bets, discuss the games and players etc.
+		        </p>
+		      </div>
+		      <h5>Responsibilities:</h5>
+		      <ul class="highlights">
+		        <li>Design and prototyping (Photoshop)</li>
+		        <li>SEO support</li>
+		        <li>Frontend development (HTML4, CSS2-3, VanillaJS, jQuery)</li>
+		        <li>Backend development (PHP)</li>
+		        <li>Database support and maintenance (MySQL)</li>
+		        <li>Content handling (DLE CMS)</li>
+		        <li>Server support and setting (CentOS, Apache)</li>
+		      </ul>
+		    </div>
+		  </section>
+		</section>
+		<section id="skills">
+			<h3>Skills</h3>
+		  <section>
+		    <div class="item">
+		      <div class="name">
+		        Frontend Development
+		      </div>
+		      <div class="level">
+		        <em>Advanced/Expert</em>
+		      </div>
+		      <ul class="keywords">
+		        <li>HTML</li>
+		        <li>CSS</li>
+		        <li>XML</li>
+		        <li>Javascript</li>
+		        <li>Bootstrap</li>
+		        <li>Less</li>
+		        <li>SASS</li>
+		        <li>Backbone</li>
+		        <li>Jquery</li>
+		        <li>Marionette</li>
+		        <li>Underscore/Lodash</li>
+		        <li>Ramda</li>
+		        <li>ES6</li>
+		        <li>React</li>
+		        <li>Redux</li>
+		        <li>RxJS</li>
+		        <li>Mobx</li>
+		      </ul>
+		    </div>
+		    <div class="item">
+		      <div class="name">
+		        Backend Development
+		      </div>
+		      <div class="level">
+		        <em>Advanced/Expert</em>
+		      </div>
+		      <ul class="keywords">
+		        <li>Node.js</li>
+		        <li>PHP</li>
+		        <li>Go</li>
+		        <li>MongoDB</li>
+		        <li>MySQL</li>
+		        <li>Redis</li>
+		        <li>PostgreSQL</li>
+		        <li>Yii</li>
+		        <li>Laravel</li>
+		        <li>Silex</li>
+		        <li>Express</li>
+		        <li>Koa</li>
+		        <li>Hapi.js</li>
+		        <li>Meteor</li>
+		        <li>Gearman</li>
+		        <li>SocketIO</li>
+		      </ul>
+		    </div>
+		    <div class="item">
+		      <div class="name">
+		        Mobile development
+		      </div>
+		      <div class="level">
+		        <em>Advanced</em>
+		      </div>
+		      <ul class="keywords">
+		        <li>Cordova/PhoneGap</li>
+		        <li>Ionic</li>
+		        <li>React Native</li>
+		      </ul>
+		    </div>
+		    <div class="item">
+		      <div class="name">
+		        Desktop development
+		      </div>
+		      <div class="level">
+		        <em>Intermediate</em>
+		      </div>
+		      <ul class="keywords">
+		        <li>Electron</li>
+		      </ul>
+		    </div>
+		    <div class="item">
+		      <div class="name">
+		        DevOps
+		      </div>
+		      <div class="level">
+		        <em>Intermediate</em>
+		      </div>
+		      <ul class="keywords">
+		        <li>Ubuntu</li>
+		        <li>CentOS</li>
+		        <li>Docker</li>
+		        <li>Vagrant</li>
+		        <li>Ansible</li>
+		        <li>Shell</li>
+		        <li>Capistrano</li>
+		        <li>Nginx</li>
+		        <li>Apache</li>
+		        <li>GitLab</li>
+		        <li>Jenkins</li>
+		        <li>Elasticsearch</li>
+		        <li>Logstash</li>
+		        <li>Kibana</li>
+		        <li>Zabbix</li>
+		        <li>Grafana</li>
+		        <li>Terraform</li>
+		        <li>Amazon web services</li>
+		        <li>Microsoft Azure</li>
+		        <li>DigitalOcean</li>
+		        <li>Blockchain Nodes</li>
+		      </ul>
+		    </div>
+		    <div class="item">
+		      <div class="name">
+		        Software &amp; Tools
+		      </div>
+		      <div class="level">
+		        <em>Advanced</em>
+		      </div>
+		      <ul class="keywords">
+		        <li>Git</li>
+		        <li>Composer</li>
+		        <li>GruntJS</li>
+		        <li>GulpJS</li>
+		        <li>Webpack</li>
+		        <li>Parcel</li>
+		        <li>Bower</li>
+		        <li>NPM</li>
+		        <li>Yarn</li>
+		        <li>Adobe Photoshop</li>
+		        <li>Adobe Illustrator</li>
+		        <li>Sketch</li>
+		      </ul>
+		    </div>
+		  </section>
+		</section>
+		<section id="languages">
+			<h3>Languages</h3>
+		  <section>
+		    <div class="item">
+		      <div class="language">
+		        Russian
+		      </div>
+		      <div class="fluency">
+		        <em>Native speaker</em>
+		      </div>
+		    </div>
+		    <div class="item">
+		      <div class="language">
+		        English
+		      </div>
+		      <div class="fluency">
+		        <em>Fluent</em>
+		      </div>
+		    </div>
+		  </section>
+		</section>
+		<section id="interests">
+			<h3>Interests</h3>
+		  <section>
+		      <div class="name">
+		        Soccer
+		      </div>
+		      <div class="name">
+		        Travelling
+		      </div>
+		      <div class="name">
+		        Cars
+		      </div>
+		  </section>
+		</section>
+    <section id="profiles">
+    	<h3>Profiles</h3>
+      <section>
+        <div class="item">
+          <div class="network">
+            LinkedIn
+          </div>
+          <div class="url">
+            <a href="https://www.linkedin.com/in/andrewavdeev/">andrewavdeev</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Github
+          </div>
+          <div class="url">
+            <a href="https://github.com/aandrewww">aandrewww</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            NPM
+          </div>
+          <div class="url">
+            <a href="https://www.npmjs.com/~andrewww">andrewww</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Goodreads
+          </div>
+          <div class="url">
+            <a href="https://www.goodreads.com/user/show/26864332-andrew-avdeev">andrew-avdeev</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Twitter
+          </div>
+          <div class="url">
+            <a href="https://twitter.com/AndrewwGooner">AndrewwGooner</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Facebook
+          </div>
+          <div class="url">
+            <a href="https://www.facebook.com/andrew.avdeev.3">andrew.avdeev.3</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Skype
+          </div>
+            <div class="url">
+              andrew-gooner
+            </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Vkontakte
+          </div>
+          <div class="url">
+            <a href="https://vk.com/aandreeww">aandreeww</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Instagram
+          </div>
+          <div class="url">
+            <a href="https://www.instagram.com/aandreewww/">aandreewww</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Tumblr
+          </div>
+          <div class="url">
+            <a href="http://andrewwwavdeev.tumblr.com/">andrewwwavdeev</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Flickr
+          </div>
+          <div class="url">
+            <a href="https://www.flickr.com/photos/andrewwwavdeev/">andrewwwavdeev</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            YouTube
+          </div>
+          <div class="url">
+            <a href="https://www.youtube.com/user/andrewwwavdeev">andrewwwavdeev</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            KinoPoisk
+          </div>
+          <div class="url">
+            <a href="https://www.kinopoisk.ru/user/2741742/">aandrewww</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            AngelList
+          </div>
+          <div class="url">
+            <a href="https://angel.co/andrew-avdeev-1">andrew-avdeev-1</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Stack Overflow
+          </div>
+          <div class="url">
+            <a href="http://stackoverflow.com/users/3324514/andrew-avdeev">andrew-avdeev</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="network">
+            Product Hunt
+          </div>
+          <div class="url">
+            <a href="https://www.producthunt.com/@andrewww">andrewww</a>
+          </div>
+        </div>
+      </section>
+    </section>
+		<section id="contacts">
+		  <div class="location item">
+		    <div class="block">
+		      <span class="countryCode">BY</span>
+		      <span class="city">Minsk</span>
+		      
+		    </div>
+		    <div class="block">
+		      <span class="address">Matusevicha street, 68</span>
+		    </div>
+		  </div>
+		
+		  <div class="contacts item">
+		    <div class="block">
+		      <span class="email">andrewww.avdeev@gmail.com</span>
+		    </div>
+		    <div class="block">
+		      <span class="phone">+37595418679</span>
+		    </div>
+		  </div>
+		
+		  <div class="site item">
+		    <div class="block">
+		      <a href="https://andrewavdeev.com" class="url">andrewavdeev.com</a>
+		    </div>
+		  </div>
+		</section>
+	</body>
 </html>

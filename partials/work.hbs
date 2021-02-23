@@ -1,0 +1,60 @@
+{{#if resume.work.length}}
+<section id="work">
+	<h3>Work</h3>
+  <section>
+    {{#each resume.work}}
+    <div class="item">
+      <div class="row">
+        {{#if name}}
+        <div class="name">
+          {{name}}
+        </div>
+        {{/if}}
+        <div class="date">
+          {{#if startDate}}
+          <span class="startDate">
+            {{formatDate startDate}}
+          </span>
+          {{/if}}
+          {{#if endDate}}
+          <span class="endDate">
+            - {{formatDate endDate}}
+          </span>
+          {{else}}
+          <span class="endDate">
+            - Present
+          </span>
+          {{/if}}
+        </div>
+      </div>
+      {{#if url}}
+      <div class="url">
+        <a href="{{url}}">{{url}}</a>
+      </div>
+      {{/if}}
+      {{#if position}}
+      <div class="position">
+        {{position}}
+      </div>
+      {{/if}}
+      {{#ifCond summary '||' description}}
+      <div class="summary">
+        <p>
+          {{description}}
+          {{summary}}
+        </p>
+      </div>
+      {{/ifCond}}
+      {{#if highlights.length}}
+      <h5>Responsibilities:</h5>
+      <ul class="highlights">
+        {{#each highlights}}
+        <li>{{.}}</li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+</section>
+{{/if}}
